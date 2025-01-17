@@ -46,13 +46,16 @@ public class BoardService {
         return board;
     }
 
-//    public boolean deleteBoard(Long seq) {
-//
-//        try {
-//            int result = boardMapper.delete(seq);
-//
-//        } catch (Exception e) {
-//            log.error(e.toString());
-//        }
-//    }
+    public boolean deleteBoard(Long seq) {
+
+        try {
+            int result = boardMapper.delete(seq);
+            log.debug(result + "");
+
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
 }

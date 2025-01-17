@@ -42,6 +42,7 @@ public class BoardController {
     //등록페이지
     @GetMapping("/boards/create")
     public String create() {
+
         return "board/create";
     }
 
@@ -61,5 +62,14 @@ public class BoardController {
         model.addAttribute("post", boardService.getBoardById(seq));
 
         return "board/edit";
+    }
+
+    //수정
+    @PutMapping("/boards")
+    public String put(@RequestBody Board board, Model model) {
+
+        boardService.updateBoard(board);
+
+        return "redirect:/list";
     }
 }
